@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_09_085346) do
+ActiveRecord::Schema.define(version: 2019_08_10_031943) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,6 +31,20 @@ ActiveRecord::Schema.define(version: 2019_08_09_085346) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "lesson_id"
+    t.integer "star"
+    t.string "professor"
+    t.string "attendance"
+    t.string "textbook"
+    t.string "exam"
+    t.string "exam_image_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -48,6 +62,26 @@ ActiveRecord::Schema.define(version: 2019_08_09_085346) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.integer "fuculty_id"
+    t.string "department_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fuculties", force: :cascade do |t|
+    t.string "fuculty_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.integer "department_id"
+    t.string "lesson_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

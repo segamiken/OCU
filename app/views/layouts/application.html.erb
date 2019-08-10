@@ -10,6 +10,62 @@
   </head>
 
   <body>
+
+    <header>
+      <h1>
+      <% if customer_signed_in? %>
+        <%=link_to "クロバス", root_path %>
+      <% elsif admin_signed_in? %>
+        <%=link_to "管理者ページ" %>
+      <% else %>
+        <%=link_to "クロバス", root_path %>
+      <% end %>
+      </h1>
+
+      <nav>
+
+        <ul>
+        <!--ユーザーログイン時-->
+        <% if customer_signed_in? %>
+          <li>
+            <%= link_to "ホーム", root_path %>
+          </li>
+
+          <li>
+            <%= link_to "マイページ" %>
+          </li>
+
+          <li>
+            <%= link_to "新規投稿" %>
+          </li>
+
+          <li>
+            <%= link_to "ログアウト" , destroy_customer_session_path, :method => :delete %>
+          </li>
+
+        <!--管理者ログイン時-->
+        <% elsif admin_signed_in? %>
+          <li>
+            <% link_to "ユーザー一覧" %>
+          </li>
+
+        <!--非ログイン時-->
+        <% else %>
+          <li>
+            <%=link_to "ホーム", root_path %>
+          </li>
+
+          <li>
+            <%=link_to "ログイン", new_customer_session_path %>
+          </li>
+
+          <li>
+            <%=link_to "新規会員登録", new_customer_registration_path %>
+          </li>
+        <% end %>
+        </ul>
+      </nav>
+    </header><!-- /header -->
     <%= yield %>
   </body>
 </html>

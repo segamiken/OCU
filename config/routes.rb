@@ -10,5 +10,12 @@ Rails.application.routes.draw do
   	:sessions => 'customers/sessions'
   }
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'fuculties#index'
+
+  #エンドユーザー
+  resources :fuculties, only:[:new]
+
+
+
+  #管理者
 end

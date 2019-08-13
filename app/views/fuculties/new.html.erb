@@ -1,0 +1,12 @@
+<section class="title">
+	<h1>新規投稿</h1>
+	<h3>投稿したい学部を選んでください！</h3>
+</section>
+
+
+<% @fuculties.each do |f| %>
+<div class="fuculty__top">
+	<%= link_to f.fuculty_name, new_fuculty_departments_path(f.id), class: "fuculty_link" %>
+</div>
+<% end %>
+

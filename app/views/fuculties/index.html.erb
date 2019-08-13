@@ -1,10 +1,10 @@
 <section class="title">
-	<h1>教科一覧</h1>
+	<h1>学部一覧</h1>
 </section>
 
 
 <% @fuculties.each do |f| %>
 <div class="fuculty__top">
-	<%= link_to f.fuculty_name, class: "fuculty_link" %>
+	<%= link_to f.fuculty_name, fuculty_departments_path(f.id), class: "fuculty_link" %>
 </div>
 <% end %>

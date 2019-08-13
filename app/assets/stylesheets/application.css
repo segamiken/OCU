@@ -56,3 +56,16 @@ header {
 	display: block;
 	clear: both;
 }
+
+.fuculty__top {
+	width: 25%;
+	height: 100px;
+	float: left;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.fuculty__link {
+	display: inline-block;
+	font-size: 20px;
+}

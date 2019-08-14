@@ -1,0 +1,15 @@
+<section class="title">
+	<h1>新規投稿</h1>
+	<h3>投稿したい教科を選んでください！</h3>
+</section>
+
+
+<% @lessons.each do |f| %>
+<div class="fuculty__top">
+	<%= link_to f.lesson_name,class: "fuculty_link" %>
+</div>
+<% end %>
+
+<div>
+	<%= link_to "授業がない場合はこちら", new_department_lessons_path(@department.id) %>
+</div>

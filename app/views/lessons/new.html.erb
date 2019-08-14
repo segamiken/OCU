@@ -1,0 +1,22 @@
+<section class="title">
+	<h1>授業とコメントの新規投稿</h1>
+</section>
+
+
+<%= form_for @lesson, url: department_lessons_path do |f| %>
+<h3>授業</h3>
+	<div class="field">
+		<%= f.label :lesson_name, "授業名"%>
+		<%= f.text_field :lesson_name %>
+	</div>
+
+<h3>コメント</h3>
+	<div>
+		<%= f.fields_for :comments do |comment| %>
+			<%= render "comment_fields", f: comment %>
+		<% end %>
+
+		<%= f.submit %>
+	</div>
+
+<% end %>

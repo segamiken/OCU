@@ -6,6 +6,6 @@
 
 <% @departments.each do |f| %>
 <div class="fuculty__top">
-	<%= link_to f.department_name, class: "fuculty_link" %>
+	<%= link_to f.department_name, department_lessons_path(f.id) ,class: "fuculty_link" %>
 </div>
 <% end %>

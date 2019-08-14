@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :departments, only:[:index] do
-  	resource :classes, only:[:show, :new]
+  	resource :lessons, only:[:show, :new, :create]
   end
 
   #管理者

@@ -1,3 +1,66 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.complete__page {
+	width: 100%;
+	text-align: center;
+	padding: 40px;
+}
+
+.complete__page p {
+	margin-bottom: 20px;
+}
+
+.comment__all {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.comment__title {
+	width: 30%;
+	float: left;
+	text-align: right;
+}
+
+.comment__title p {
+	margin: 5px 5px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.comment__title p:nth-of-type(6) {
+	margin: 5px 5px;
+	height: 100px;
+	line-height: 100px;
+}
+
+.comment__contents {
+	width :70%;
+	float: left;
+	text-align: center;
+}
+
+.comment__contents p {
+	margin: 5px 0;
+	height: 30px;
+	line-height: 30px;
+}
+
+.comment__contents p:nth-of-type(6) {
+	margin: 5px 0;
+	height: 100px;
+	line-height: 100px;
+}
+
+
+
+.comment__text {
+	text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 10px 10px 10px 10px;
+    border-style: none;
+    width: 70%;
+    padding: 0 15px;
+}

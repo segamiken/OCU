@@ -22,7 +22,7 @@ class LessonsController < ApplicationController
 			c.customer_id = current_customer.id
 		end
 		if @lesson.save
-			redirect_to root_path
+			redirect_to complete_lesson_comments_path(@lesson.id)
 		else
 			render :new
 		end

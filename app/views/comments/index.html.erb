@@ -1,17 +1,53 @@
 <section class="title">
-	<h1><%= @lesson.lesson_name %></h1>
+	<h1><%= @lesson.department.department_name %>
+	<%= @lesson.lesson_name %></h1>
 	<h3>コメント一覧</h3>
 </section>
 
 
+
 <% @comments.each do |f| %>
-<div>
-	<%= f.star %>
-	<%= f.professor %>
-	<%= f.attendance %>
-	<%= f.textbook %>
-	<%= f.exam %>
-	<%= f.comment %>
-	<%= f.customer.customer_name %>
+<div class="clearfix">
+	<div class="comment__title">
+		<p>評価</p>
+		<p>教授</p>
+		<p>出席</p>
+		<p>教科書</p>
+		<p>試験</p>
+		<p>感想</p>
+		<p>投稿したユーザー</p>
+	</div>
+
+	<div class="comment__contents">
+		<p class="comment__text">
+		<%= f.star %>
+		</p>
+
+		<p class="comment__text">
+		<%= f.professor %>
+		</p>
+
+		<p class="comment__text">
+		<%= f.attendance %>
+		</p>
+
+		<p class="comment__text">
+		<%= f.textbook %>
+		</p>
+
+		<p class="comment__text">
+		<%= f.exam %>
+		</p>
+
+		<p class="comment__text">
+		<%= f.comment %>
+		</p>
+
+		<p class="comment__text">
+		<%= f.customer.customer_name %>
+		</p>
+	</div>
 </div>
+<br>
+<br>
 <% end %>

@@ -1,0 +1,32 @@
+<br>
+<br>
+<section class="title">
+	<h1><%= @customer.customer_name %>さんのユーザーマイページ</h1>
+</section>
+
+<div class="clearfix">
+	<div class="comment__title">
+		<p>ユーザー名</p>
+		<p>Twitterアカウント</p>
+		<p>自己紹介</p>
+		<p>投稿数</p>
+	</div>
+
+	<div class="comment__contents">
+		<p class="comment__text">
+		<%= @customer.customer_name %>
+		</p>
+
+		<p class="comment__text">
+		Twitterアカウント
+		</p>
+
+		<p class="comment__text">
+		<%= @customer.customer_introduction %>
+		</p>
+
+		<p class="comment__text">
+		<%= link_to @customer.comments.count, comments_customer_path(@customer.id) %>
+		</p>
+	</div>
+</div>

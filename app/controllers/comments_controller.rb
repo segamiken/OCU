@@ -2,6 +2,12 @@ class CommentsController < ApplicationController
 	def index
 		@comments = Comment.where(lesson_id: params[:lesson_id])
 		@lesson = Lesson.find(params[:lesson_id])
+		@cc = @lesson.comments.all
+		sum_of_number = 0
+		@cc.each do |c|
+			sum_of_number = sum_of_number + c.star
+			@star_average = sum_of_number / @cc.count
+		end
 	end
 
 	def new

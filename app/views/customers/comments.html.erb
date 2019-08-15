@@ -1,14 +1,12 @@
+<br>
+<br>
 <section class="title">
-	<h1><%= @lesson.department.department_name %>
-	<%= @lesson.lesson_name %></h1>
-	<h3>この科目の平均評価点は
-	<%= @star_average %>/10点です。</h3>
+	<h1><%= @customer.customer_name %>さんの投稿一覧</h1>
 </section>
-
-
 
 <% @comments.each do |f| %>
 <div class="clearfix">
+	<h3 class="mypage__lesson"><%= f.lesson.lesson_name %></h3>
 	<div class="comment__title">
 		<p>評価</p>
 		<p>教授</p>

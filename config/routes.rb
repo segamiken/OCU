@@ -37,6 +37,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :customers, only:[:show, :edit, :update] do
+    get :comments, on: :member
+  end
+
 
 
 

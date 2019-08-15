@@ -34,6 +34,7 @@ header {
 	width: 100%;
 	text-align: center;
 	padding: 10px 0;
+	background-color: #00FFFF;
 }
 
 
@@ -106,6 +107,8 @@ header {
 }
 
 
+
+/*リスポンシブ対応！！！！*/
 @media screen and (max-width:768px) {
 	.fuculty__top {
 	width: 50%;

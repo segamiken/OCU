@@ -1,18 +1,9 @@
-// Place all the styles related to the comments controller here.
+// Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
 /* ユーザーマイぺージとコメント一覧*/
-.complete__page {
-	width: 100%;
-	text-align: center;
-	padding: 40px;
-}
-
-.complete__page p {
-	margin-bottom: 20px;
-}
 
 .comment__title {
 	width: 30%;
@@ -58,4 +49,8 @@
     border-style: none;
     width: 70%;
     padding: 0 15px;
+}
+
+.mypage__lesson {
+	text-align: center;
 }

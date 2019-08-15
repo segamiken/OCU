@@ -21,8 +21,25 @@ Rails.application.routes.draw do
   end
 
   resources :departments, only:[:index] do
-  	resource :lessons, only:[:show, :new, :create]
+  	resource :lessons, only:[:new, :create] do
+      collection do
+      get :index
+      get :select
+      end
+    end
   end
+
+  resources :lessons, only:[:show] do
+    resources :comments do
+      collection do
+        get :complete
+      end
+    end
+  end
+
+
+
+
 
   #管理者
 end

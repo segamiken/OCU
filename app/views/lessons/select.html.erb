@@ -6,7 +6,7 @@
 
 <% @lessons.each do |f| %>
 <div class="fuculty__top">
-	<%= link_to f.lesson_name,class: "fuculty_link" %>
+	<%= link_to f.lesson_name, new_lesson_comment_path(f.id), class: "fuculty_link" %>
 </div>
 <% end %>
 

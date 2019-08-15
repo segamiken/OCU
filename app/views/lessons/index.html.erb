@@ -1,0 +1,10 @@
+<section class="title">
+	<h1>授業一覧</h1>
+</section>
+
+
+<% @lessons.each do |f| %>
+<div class="fuculty__top">
+	<%= link_to f.lesson_name, lesson_comments_path(f.id) ,class: "fuculty_link" %>
+</div>
+<% end %>

@@ -1,5 +1,10 @@
 class LessonsController < ApplicationController
-	def show
+	def index
+		@lessons = Lesson.where(department_id: params[:department_id])
+	end
+
+
+	def select
 		@lessons = Lesson.where(department_id: params[:department_id])
 		@department = Department.find(params[:department_id])
 	end

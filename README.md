@@ -1,24 +1,19 @@
-# README
+#大学の授業に対する評価(10点満点)と感想を投稿できるSNS。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##機能一覧
 
-Things you may want to cover:
+・学部、学科、授業を選択してその授業の評価とコメント一覧を閲覧できる機能
+・コメントの詳細表示機能
+・コメントに対するいいね機能。
+・評価が高い授業ランキングの表示機能
+・過去問画像、コメントの新規投稿機能
+・管理ユーザー登録機能
+・管理ユーザーログイン機能
 
-* Ruby version
 
-* System dependencies
+###使用している技術一覧
+Ruby on Rails
+JavaScript
+JQuery
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby version 2.5.5

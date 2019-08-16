@@ -4,7 +4,13 @@
 
 
 <% @lessons.each do |f| %>
+
+<%= link_to lesson_comments_path(f.id) do %>
 <div class="fuculty__top">
-	<%= link_to f.lesson_name, lesson_comments_path(f.id) ,class: "fuculty_link" %>
+	<%= f.lesson_name %>
 </div>
+<% end %>
+
+
+
 <% end %>

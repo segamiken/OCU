@@ -4,6 +4,12 @@
 	<h1><%= @customer.customer_name %>さんのユーザーマイページ</h1>
 </section>
 
+<% if @customer.id = current_customer.id %>
+<div>
+	<%= link_to "マイページの編集", edit_customer_path(@customer.id) %>
+</div>
+<% end %>
+
 <div class="clearfix">
 	<div class="comment__title">
 		<p>ユーザー名</p>

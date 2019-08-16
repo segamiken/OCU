@@ -31,6 +31,25 @@ class CommentsController < ApplicationController
 	def complete
 	end
 
+	def edit
+		@comment = Comment.find_by(lesson_id: params[:lesson_id], id: params[:id])
+	end
+
+	def update
+		@comment = Comment.find_by(lesson_id: params[:lesson_id], id: params[:id])
+		if @comment.update(comment_params)
+		   redirect_to complete_lesson_comments_path(@comment.lesson.id)
+		elsif
+			render :edit
+		end
+	end
+
+	def destroy
+		@comment = Comment.find_by(lesson_id: params[:lesson_id], id: params[:id])
+		@comment.destroy
+		redirect_to comments_customer_path(current_customer.id)
+	end
+
 
 
 	private

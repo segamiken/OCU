@@ -5,8 +5,13 @@
 
 
 <% @fuculties.each do |f| %>
+
+<%= link_to new_fuculty_departments_path(f.id) do %>
 <div class="fuculty__top">
-	<%= link_to f.fuculty_name, new_fuculty_departments_path(f.id), class: "fuculty_link" %>
+	<%= f.fuculty_name %>
 </div>
+<% end %>
+
+
 <% end %>
 

@@ -4,7 +4,11 @@
 
 
 <% @fuculties.each do |f| %>
+
+<%= link_to fuculty_departments_path(f.id) do %>
 <div class="fuculty__top">
-	<%= link_to f.fuculty_name, fuculty_departments_path(f.id), class: "fuculty_link" %>
+		<%= f.fuculty_name %>
 </div>
+<% end %>
+
 <% end %>

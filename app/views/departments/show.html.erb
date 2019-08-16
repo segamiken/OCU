@@ -4,7 +4,12 @@
 
 
 <% @departments.each do |f| %>
+
+<%= link_to department_lessons_path(f.id) do %>
 <div class="fuculty__top">
-	<%= link_to f.department_name, department_lessons_path(f.id) ,class: "fuculty_link" %>
+	<%= f.department_name %>
 </div>
+<% end %>
+
+
 <% end %>

@@ -3,13 +3,18 @@
 	<h3>投稿したい教科を選んでください！</h3>
 </section>
 
+<br>
+<div>
+	<%= link_to "授業がない場合はこちら", new_department_lessons_path(@department.id)%>
+</div>
+
 
 <% @lessons.each do |f| %>
+
+<%= link_to new_lesson_comment_path(f.id) do %>
 <div class="fuculty__top">
-	<%= link_to f.lesson_name, new_lesson_comment_path(f.id), class: "fuculty_link" %>
+	<%= f.lesson_name %>
 </div>
 <% end %>
 
-<div>
-	<%= link_to "授業がない場合はこちら", new_department_lessons_path(@department.id) %>
-</div>
+<% end %>

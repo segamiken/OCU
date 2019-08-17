@@ -2,6 +2,10 @@
 	<h1>授業一覧</h1>
 </section>
 
+<div>
+	<%= link_to "評価ランキングを見る", ranking_department_lessons_path(@department.id) %>
+</div>
+
 
 <% @lessons.each do |f| %>
 

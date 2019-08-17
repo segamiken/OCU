@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       collection do
       get :index
       get :select
+      get :ranking
       end
     end
   end

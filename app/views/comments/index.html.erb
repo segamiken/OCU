@@ -55,6 +55,10 @@
 		<p>
 		<%= link_to "コメント削除", lesson_comment_path(f.lesson.id, f.id), method: :delete, 'data-confirm' => "本当に削除しますか？", class: "btn__delete" %>
 		</p>
+
+		<p>
+		<%=attachment_image_tag f, :exam_image, :fill, 300, 300 %>
+		</p>
 	</div>
 </div>
 <br>

@@ -1,6 +1,21 @@
 class LessonsController < ApplicationController
 	def index
 		@lessons = Lesson.where(department_id: params[:department_id])
+		@department = Department.find(params[:department_id])
+	end
+
+	def ranking
+		@department = Department.find(params[:department_id])
+		@lessons = Lesson.where(department_id: params[:department_id])
+
+		sum_of_number = 0
+		@lessons.each do |l|
+			@comments = l.comments
+			@comments.each do |c|
+				sum_of_number = sum_of_number + c.star
+				@star_average = sum_of_number / @comments.count
+			end
+		end
 	end
 
 
@@ -31,6 +46,6 @@ class LessonsController < ApplicationController
 
 	private
 	def lesson_params
-		params.require(:lesson).permit(:lesson_name, comments_attributes: [:id, :customer_id, :star, :professor, :attendance, :textbook, :exam, :comment, :_destroy])
+		params.require(:lesson).permit(:lesson_name, comments_attributes: [:id, :customer_id, :star, :professor, :attendance, :textbook, :exam, :exam_image, :comment, :_destroy])
 	end
 end

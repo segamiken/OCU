@@ -3,7 +3,11 @@
 </section>
 
 
-
-<% @star_average.each do |star| %>
-	<%= star %>
+<% @lessons.each do |l| %>
+	<p>
+		<%=l.lesson_name %>
+	</p>
 <% end %>
+
+<%= @number %>
+

@@ -13,7 +13,7 @@
 <section class="form__all">
 
 <div>
-<%= form_for @comment, url: lesson_comments_path do |f| %>
+<%= form_for @comment, url: lesson_comments_path, remote: true do |f| %>
 
 <div class="field">
     <%= f.label :star, "10点満点の評価", class: "form__label" %>

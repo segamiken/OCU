@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 
   resources :lessons, only:[:show] do
     resources :comments do
+      resource :favorites, only: [:create, :destroy]
       collection do
         get :complete
       end

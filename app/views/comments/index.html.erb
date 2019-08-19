@@ -1,66 +1,13 @@
 <section class="title">
 	<h1><%= @lesson.department.department_name %>
 	<%= @lesson.lesson_name %></h1>
+	<br>
 	<h3>この科目の平均評価点は
 	<%= @star_average %>/10点です。</h3>
+
 </section>
 
 
-
-<% @comments.each do |f| %>
-<div class="clearfix">
-	<div class="comment__title">
-		<p>評価</p>
-		<p>教授</p>
-		<p>出席</p>
-		<p>教科書</p>
-		<p>試験</p>
-		<p>感想</p>
-		<p>投稿したユーザー</p>
-	</div>
-
-	<div class="comment__contents">
-		<p class="comment__text">
-		<%= f.star %>
-		</p>
-
-		<p class="comment__text">
-		<%= f.professor %>
-		</p>
-
-		<p class="comment__text">
-		<%= f.attendance %>
-		</p>
-
-		<p class="comment__text">
-		<%= f.textbook %>
-		</p>
-
-		<p class="comment__text">
-		<%= f.exam %>
-		</p>
-
-		<p class="comment__text">
-		<%= f.comment %>
-		</p>
-
-		<p class="comment__text">
-		<%= f.customer.customer_name %>
-		</p>
-
-		<p>
-		<%= link_to "編集する", edit_lesson_comment_path(f.lesson.id, f.id), class: "btn" %>
-		</p>
-
-		<p>
-		<%= link_to "コメント削除", lesson_comment_path(f.lesson.id, f.id), method: :delete, 'data-confirm' => "本当に削除しますか？", class: "btn__delete" %>
-		</p>
-
-		<p>
-		<%=attachment_image_tag f, :exam_image, :fill, 300, 300 %>
-		</p>
-	</div>
+<div id="favorite-link">
+	<%= render "like", comments: @comments %>
 </div>
-<br>
-<br>
-<% end %>

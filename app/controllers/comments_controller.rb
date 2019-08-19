@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
 	end
 
 	def create
+		@comments = Comment.where(lesson_id: params[:lesson_id])
 		@comment = Comment.new(comment_params)
 		@lesson = Lesson.find(params[:lesson_id])
 		@comment.lesson_id = @lesson.id
@@ -23,7 +24,7 @@ class CommentsController < ApplicationController
 
 		if @comment.save
 			redirect_to complete_lesson_comments_path(@lesson.id)
-		elsif
+		else
 			render :new
 		end
 	end

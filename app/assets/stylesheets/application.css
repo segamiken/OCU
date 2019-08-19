@@ -125,6 +125,10 @@ footer {
 	width: 100%;
 }
 
+.comment-link {
+	display: none;
+}
+
 
 
 /*リスポンシブ対応！！！！*/

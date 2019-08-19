@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 	def index
+		@comment = Comment.new
 		@comments = Comment.where(lesson_id: params[:lesson_id])
 		@lesson = Lesson.find(params[:lesson_id])
 		@cc = @lesson.comments.all

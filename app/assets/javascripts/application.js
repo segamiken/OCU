@@ -16,3 +16,16 @@
 //= require turbolinks
 //= require_tree .
 //= require cocoon
+
+
+$(document).ready(function () {
+	$('.comment-btn').on('click', function(){
+		$('.comment-index').hide();
+		$('.comment-link').show();
+	});
+
+	$('.comment-btn2').on('click', function(){
+		$('.comment-index').show();
+		$('.comment-link').hide();
+	});
+});

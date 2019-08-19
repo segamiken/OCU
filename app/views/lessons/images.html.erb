@@ -1,0 +1,9 @@
+
+
+<% @comments.each do|c| %>
+<% if c.exam_image.present? %>
+<div>
+	<%=attachment_image_tag c, :exam_image, class: "lesson-images" %>
+</div>
+<% end %>
+<% end %>

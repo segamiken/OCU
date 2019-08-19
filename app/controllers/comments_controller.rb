@@ -1,14 +1,16 @@
 class CommentsController < ApplicationController
 	def index
 		@comment = Comment.new
-		@comments = Comment.where(lesson_id: params[:lesson_id])
 		@lesson = Lesson.find(params[:lesson_id])
-		@cc = @lesson.comments.all
+		@comments = @lesson.comments.all
+
 		sum_of_number = 0
-		@cc.each do |c|
-			sum_of_number = sum_of_number + c.star
-			@star_average = sum_of_number / @cc.count
+		@comments.each do |c|
+			if c.star.present?
+			sum_of_number += c.star
+			end
 		end
+		@star_average = sum_of_number / @comments.count.to_f
 	end
 
 	def new
@@ -24,7 +26,8 @@ class CommentsController < ApplicationController
 		@comment.customer_id = current_customer.id
 
 		if @comment.save
-			redirect_to complete_lesson_comments_path(@lesson.id)
+			@comments = Comment.where(lesson_id: params[:lesson_id])
+			render 'comment.js.erb'
 		else
 			render :new
 		end

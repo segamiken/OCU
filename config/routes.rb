@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   resources :lessons, only:[:show] do
+    get :images, on: :member
     resources :comments do
       resource :favorites, only: [:create, :destroy]
       collection do

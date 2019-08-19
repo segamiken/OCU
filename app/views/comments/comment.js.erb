@@ -1,0 +1,11 @@
+
+$(document).ready(function () {
+	$('#favorite-link').html("<%= escape_javascript(render 'comments/like', comments: @comments) %>");
+	$('.comment-link').hide();
+	$('.comment-index').show();
+
+	$('.comment-btn').on('click', function(){
+		$('.comment-index').hide();
+		$('.comment-link').show();
+	});
+});

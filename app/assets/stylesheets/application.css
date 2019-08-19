@@ -129,6 +129,20 @@ footer {
 	display: none;
 }
 
+.comment-btn {
+	color: white;
+	width: 30%;
+	background-color: #C0C0C0;
+	margin: 10px;
+}
+
+.comment-btn2 {
+	color: white;
+	width: 30%;
+	background-color: #C0C0C0;
+	margin: 10px;
+}
+
 
 
 /*リスポンシブ対応！！！！*/

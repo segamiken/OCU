@@ -42,6 +42,11 @@ class LessonsController < ApplicationController
 		end
 	end
 
+	def images
+		@lesson = Lesson.find(params[:id])
+		@comments = @lesson.comments
+	end
+
 
 	private
 	def lesson_params

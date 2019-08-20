@@ -1,0 +1,27 @@
+<h2 class="title">ユーザー情報編集</h2>
+<section class="form__all">
+
+<%= form_for @customer, url: admin_customer_path do |f| %>
+
+  <div class="field">
+    <%= f.label :ユーザー名, class: "form__label" %><br />
+    <%= f.text_field :customer_name, class: "form__field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :メールアドレス, class: "form__label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form__field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :自己紹介, class: "form__label" %><br />
+    <%= f.text_area :customer_introduction, class: "form__field" %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "編集完了", class: "btn" %>
+  </div>
+<% end %>
+
+</section>

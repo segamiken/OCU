@@ -32,6 +32,14 @@
 	line-height: 100px;
 }
 
+#comment__title__special{
+	margin: 5px 5px;
+	height: 100px;
+	line-height: 100px;
+}
+
+
+
 .comment__contents {
 	width :70%;
 	float: left;
@@ -51,6 +59,13 @@
 }
 
 
+#comment__text__special {
+	margin: 5px 0;
+	height: 100px;
+	line-height: 100px;
+}
+
+
 .comment__text {
 	text-align: center;
     background-color: #f0f0f0;
@@ -59,3 +74,12 @@
     width: 70%;
     padding: 0 15px;
 }
+
+
+textarea {
+	width: 70%;
+	height: 100px;
+	float: left;
+	line-height: 1.5em;
+}
+

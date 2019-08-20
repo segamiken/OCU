@@ -17,7 +17,7 @@
       <% if customer_signed_in? %>
         <%=link_to "クロバス", root_path %>
       <% elsif admin_signed_in? %>
-        <%=link_to "管理者ページ" %>
+        <%=link_to "管理者ページ", root_path %>
       <% else %>
         <%=link_to "クロバス", root_path %>
       <% end %>
@@ -47,14 +47,13 @@
         <!--管理者ログイン時-->
         <% elsif admin_signed_in? %>
           <li class="header__li">
-            <%= link_to "ユーザー一覧" %>
+            <%= link_to "ユーザー一覧", admin_customers_path %>
           </li>
 
-          <li>
+          <li class="header__li">
+            <%= link_to "ログアウト" , destroy_admin_session_path, :method => :delete %>
           </li>
 
-          <li>
-          </li>
 
         <!--非ログイン時-->
         <% else %>

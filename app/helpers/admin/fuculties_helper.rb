@@ -1,0 +1,2 @@
+module Admin::FucultiesHelper
+end

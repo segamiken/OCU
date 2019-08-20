@@ -4,11 +4,12 @@
 	<h1><%= @customer.customer_name %>さんのユーザーマイページ</h1>
 </section>
 
+
 <div class="clearfix">
 	<div class="comment__title">
 		<p>ユーザー名</p>
 		<p>Twitterアカウント</p>
-		<p>自己紹介</p>
+		<p id="comment__title__special">自己紹介</p>
 		<p>投稿数</p>
 	</div>
 
@@ -27,22 +28,19 @@
 		</textarea>
 		</p>
 
+
 		<p class="comment__text">
-		<%= link_to @customer.comments.count %>
+		<%= @customer.comments.count %>
 		</p>
 
-
-
 		<br>
+
 		<div>
-		<%= link_to "このユーザーの投稿一覧を見る", comments_customer_path(@customer.id) %>
+		<%= link_to "このユーザーの投稿一覧を見る", comments_admin_customer_path(@customer.id) %>
 		</div>
 
-
-		<% if @customer.id = current_customer.id %>
 		<div>
-			<%= link_to "マイページの編集", edit_customer_path(@customer.id) %>
+		<%= link_to "このユーザーの編集", edit_admin_customer_path(@customer.id) %>
 		</div>
-		<% end %>
 	</div>
 </div>

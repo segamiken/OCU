@@ -47,6 +47,13 @@
 		<p class="comment__text">
 		<%= f.customer.customer_name %>
 		</p>
+
+		<p>
+		<%= link_to "編集する", edit_admin_lesson_comment_path(f.lesson.id, f.id), class: "btn" %>
+		</p>
+		<p>
+		<%= link_to "コメント削除", admin_lesson_comment_path(f.lesson.id, f.id), method: :delete, 'data-confirm' => "本当に削除しますか？", class: "btn__delete" %>
+		</p>
 	</div>
 </div>
 <br>

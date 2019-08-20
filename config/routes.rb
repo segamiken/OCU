@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 
 
   #管理者
-  namespace :admins do
+  namespace :admin do
     resources :customers, only:[:index, :show, :edit, :update] do
     get :comments, on: :member
     post '/delete' => 'customers#delete'
@@ -55,19 +55,19 @@ Rails.application.routes.draw do
   end
 
 
-  namespace :admins do
+  namespace :admin do
     resources :fuculties, only:[:index, :new, :create, :edit, :update]  do
       resource :departments, only:[:show]
     end
   end
 
-  namespace :admins do
+  namespace :admin do
     resources :departments, only:[:index] do
     resources :lessons, only:[:index]
     end
   end
 
-  namespace :admins do
+  namespace :admin do
     resources :lessons, only:[:show] do
     resources :comments
   end

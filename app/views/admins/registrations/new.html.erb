@@ -1,34 +1,39 @@
-<h2>管理者　新規登録</h2>
+<h2 class="title">管理者　新規登録</h2>
+
+
+<section  class="form__all">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :管理者の名前 %><br />
-    <%= f.email_field :admin_name %>
+    <%= f.label :管理者の名前, class: "form__label" %><br />
+    <%= f.text_field :admin_name, class: "form__field" %>
   </div>
 
   <div class="field">
-    <%= f.label :管理者のメールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :管理者のメールアドレス, class: "form__label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form__field" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
+    <%= f.label :パスワード, class: "form__label" %>
+    <% if @minimum_password_length%>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form__field" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード確認 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :パスワード確認, class: "form__label" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form__field" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "管理者を登録" %>
+    <%= f.submit "管理者を登録", class: "btn" %>
   </div>
 <% end %>
 
 <%= render "admins/shared/links" %>
+
+</section>

@@ -7,14 +7,6 @@ class LessonsController < ApplicationController
 	def ranking
 		@department = Department.find(params[:department_id])
 		@lessons = Lesson.where(department_id: params[:department_id])
-		@number = 0
-		@lessons.each do |l|
-			l.comments.each do |c|
-				while l.id == c.lesson.id
-					@number += c.star
-				end
-			end
-		end
 	end
 
 

@@ -3,9 +3,6 @@
 <section class="title", id="comments-index">
 	<h1><%= @lesson.department.department_name %>
 	<%= @lesson.lesson_name %></h1>
-	<br>
-	<h3>この科目の平均評価点は
-	<%= @star_average %>/10点です。</h3>
 </section>
 
 
@@ -14,13 +11,15 @@
 </div>
 
 <div id="favorite-link">
-	<%= render "like", comments: @comments %>
+	<%= render "like", comments: @comments, star_average: @star_average %>
 </div>
 
 </div>
 
 
+<% if customer_signed_in? %>
 <h3 class="comment-btn">→新規コメントを投稿する</h3>
 <div class="comment-link">
 	<%= render "comment", comment: @comment, lesson: @lesson %>
 </div>
+<% end %>

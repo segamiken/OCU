@@ -11,7 +11,7 @@
 
 <% @lessons.each do |f| %>
 
-<%= link_to new_lesson_comment_path(f.id) do %>
+<%= link_to lesson_comments_path(f.id) do %>
 <div class="fuculty__top">
 	<%= f.lesson_name %>
 </div>

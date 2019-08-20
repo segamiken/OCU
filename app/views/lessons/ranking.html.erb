@@ -5,9 +5,13 @@
 
 <% @lessons.each do |l| %>
 	<p>
-		<%=l.lesson_name %>
+		<%= l.lesson_name %>
+	</p>
+	<p>
+		<% l.comments.each do |c| %>
+		<% ca = c.average_star %>
+		<%= ca %>
+		<% end %>
 	</p>
 <% end %>
-
-<%= @number %>
 

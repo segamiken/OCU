@@ -1,3 +1,7 @@
+<h2>この科目の平均評価点は
+	<%= star_average %>/10点です。</h2>
+
+<br>
 <% comments.each do |f| %>
 <div class="clearfix">
 	<div class="comment__title">
@@ -40,6 +44,7 @@
 		</p>
 
 
+		<% if customer_signed_in? %>
 		<% if f.favorited_by?(current_customer) %>
 			<%= link_to lesson_comment_favorites_path(f.lesson.id, f.id), method: :delete, remote: true do %>
       		<i class="fa fa-thumbs-up fa-2x" style="color: blue;"></i>
@@ -52,7 +57,13 @@
    		 	  <% end %>
 		 <% end %>
 
+		 <% else %>
+		 	  <i class="fa fa-thumbs-up fa-2x" style="color: blue;"></i>
+      		  <%= f.favorites.count %> いいね
+		 <% end %>
 
+
+		<% if customer_signed_in? %>
 		<% if f.customer.id == current_customer.id %>
 		<p>
 		<%= link_to "編集する", edit_lesson_comment_path(f.lesson.id, f.id), class: "btn" %>
@@ -60,6 +71,7 @@
 		<p>
 		<%= link_to "コメント削除", lesson_comment_path(f.lesson.id, f.id), method: :delete, 'data-confirm' => "本当に削除しますか？", class: "btn__delete" %>
 		</p>
+		<% end %>
 		<% end %>
 	</div>
 </div>

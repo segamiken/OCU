@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-	$('#favorite-link').html("<%= escape_javascript(render 'comments/like', comments: @comments) %>");
+	$('#favorite-link').html("<%= escape_javascript(render 'comments/like', comments: @comments, star_average: @star_average) %>");
 	$('.comment-link').hide();
 	$('.comment-index').show();
 

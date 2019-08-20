@@ -25,13 +25,31 @@ class CommentsController < ApplicationController
 		@comment.lesson_id = @lesson.id
 		@comment.customer_id = current_customer.id
 
+		sum_of_number = 0
+		@comments.each do |c|
+			if c.star.present?
+			sum_of_number += c.star
+			end
+		end
+		@star_average = sum_of_number / @comments.count.to_f
+		@comment.average_star = @star_average.to_f
+
+
 		if @comment.save
 			@comments = Comment.where(lesson_id: params[:lesson_id])
+			sum_of_number = 0
+			@comments.each do |c|
+				if c.star.present?
+					sum_of_number += c.star
+				end
+			end
+			@star_average = sum_of_number / @comments.count.to_f
 			render 'comment.js.erb'
 		else
 			render :new
 		end
 	end
+
 
 	def complete
 	end
@@ -51,8 +69,9 @@ class CommentsController < ApplicationController
 
 	def destroy
 		@comment = Comment.find_by(lesson_id: params[:lesson_id], id: params[:id])
+		@lesson = @comment.lesson
 		@comment.destroy
-		redirect_to comments_customer_path(current_customer.id)
+		redirect_to lesson_comments_path(@lesson.id)
 	end
 
 

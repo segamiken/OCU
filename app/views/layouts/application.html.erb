@@ -17,7 +17,7 @@
       <% if customer_signed_in? %>
         <%=link_to "クロバス", root_path %>
       <% elsif admin_signed_in? %>
-        <%=link_to "管理者ページ", root_path %>
+        <%=link_to "管理者ページ", admin_fuculties_path %>
       <% else %>
         <%=link_to "クロバス", root_path %>
       <% end %>

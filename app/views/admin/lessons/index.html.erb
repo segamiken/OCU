@@ -1,0 +1,16 @@
+<section class="title">
+	<h1>授業一覧</h1>
+</section>
+
+
+<% @lessons.each do |f| %>
+
+<%= link_to admin_lesson_comments_path(f.id) do %>
+<div class="fuculty__top">
+	<%= f.lesson_name %>
+</div>
+<% end %>
+
+
+
+<% end %>

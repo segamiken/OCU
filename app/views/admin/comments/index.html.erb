@@ -1,0 +1,92 @@
+<div class="comment-index">
+
+<section class="title", id="comments-index">
+	<h1><%= @lesson.department.department_name %>
+	<%= @lesson.lesson_name %></h1>
+
+	<%= link_to "この教科を削除する", admin_lesson_path(@lesson.id), method: :delete, 'data-confirm' => "本当に教科を削除しますか？", class: "btn__delete"  %>
+</section>
+
+
+<div id="favorite-link">
+	<h2>この科目の平均評価点は
+	<%= @star_average %>/10点です。</h2>
+
+<br>
+<% @comments.each do |f| %>
+<div class="clearfix">
+	<div class="comment__title">
+		<p>評価</p>
+		<p>教授</p>
+		<p>出席</p>
+		<p>教科書</p>
+		<p>試験</p>
+		<p>感想</p>
+		<p>投稿したユーザー</p>
+	</div>
+
+	<div class="comment__contents">
+		<p class="comment__text">
+		<%= f.star %>
+		</p>
+
+		<p class="comment__text">
+		<%= f.professor %>
+		</p>
+
+		<p class="comment__text">
+		<%= f.attendance %>
+		</p>
+
+		<p class="comment__text">
+		<%= f.textbook %>
+		</p>
+
+		<p class="comment__text">
+		<%= f.exam %>
+		</p>
+
+		<p>
+		<textarea readonly>
+		<%= f.comment %>
+		</textarea>
+		</p>
+
+		<p class="comment__text">
+		<%= f.customer.customer_name %>
+		</p>
+
+
+		<% if customer_signed_in? %>
+		<% if f.favorited_by?(current_customer) %>
+			<%= link_to lesson_comment_favorites_path(f.lesson.id, f.id), method: :delete, remote: true do %>
+      		<i class="fa fa-thumbs-up fa-2x" style="color: blue;"></i>
+      		<%= f.favorites.count %> いいね
+      		<% end %>
+      	<% else %>
+		      <%= link_to lesson_comment_favorites_path(f.lesson.id, f.id), method: :post, remote: :true do %>
+	          <i class="fa fa-thumbs-up fa-2x" style="color: #C0C0C0 ;"></i>
+    		    <%= f.favorites.count %>いいね
+   		 	  <% end %>
+		 <% end %>
+
+		 <% else %>
+		 	  <i class="fa fa-thumbs-up fa-2x" style="color: blue;"></i>
+      		  <%= f.favorites.count %> いいね
+		 <% end %>
+
+
+		<p>
+		<%= link_to "編集する", edit_admin_lesson_comment_path(f.lesson.id, f.id), class: "btn" %>
+		</p>
+		<p>
+		<%= link_to "コメント削除", admin_lesson_comment_path(f.lesson.id, f.id), method: :delete, 'data-confirm' => "本当に削除しますか？", class: "btn__delete" %>
+		</p>
+
+	</div>
+</div>
+<br>
+<% end %>
+</div>
+
+</div>

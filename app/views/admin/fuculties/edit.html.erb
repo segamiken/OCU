@@ -1,0 +1,34 @@
+<ul>
+  <% @fuculty.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+
+<section class="title">
+	<h1>学部と学科を編集</h1>
+</section>
+
+
+<section class="form__all">
+
+<%= form_for @fuculty, url: admin_fuculty_path(@fuculty.id) do |f| %>
+<h2>学部</h2>
+	<div class="field">
+		<%= f.label :fuculty_name, "学部名", class: "form__label"%>
+		<%= f.text_field :fuculty_name, class: "form__field" %>
+	</div><br>
+
+<h2>学科</h2>
+	<div>
+		<%= f.fields_for :departments do |department| %>
+			<%= render "department_fields", f: department %>
+		<% end %>
+
+		<%= link_to_add_association '＋', f, :departments %>
+
+		<%= f.submit "保存", class: "btn" %>
+	</div>
+
+<% end %>
+
+</section>

@@ -1,0 +1,15 @@
+<section class="title">
+	<h1>学部一覧</h1>
+	<%= link_to "学部を追加する", new_admin_fuculty_path, class: "btn" %>
+</section>
+
+
+<% @fuculties.each do |f| %>
+
+<%= link_to admin_fuculty_departments_path(f.id) do %>
+<div class="fuculty__top">
+		<%= f.fuculty_name %>
+</div>
+<% end %>
+
+<% end %>

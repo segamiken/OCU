@@ -1,0 +1,19 @@
+<section class="title">
+	<h1>学科一覧</h1>
+	<%= link_to "学部、学科を編集する", edit_admin_fuculty_path(@fuculty.id), class: "btn" %>
+	<br>
+	<%= link_to "学部を削除する", admin_fuculty_path(@fuculty.id), method: :delete, 'data-confirm' => "本当に学部を削除しますか？？", class: "btn__delete"  %>
+
+</section>
+
+
+<% @departments.each do |f| %>
+
+<%= link_to admin_department_lessons_path(f.id) do %>
+<div class="fuculty__top">
+	<%= f.department_name %>
+</div>
+<% end %>
+
+
+<% end %>

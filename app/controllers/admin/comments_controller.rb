@@ -1,4 +1,17 @@
 class Admin::CommentsController < ApplicationController
+	def index
+		@lesson = Lesson.find(params[:lesson_id])
+		@comments = Comment.where(lesson_id: params[:lesson_id])
+
+		sum_of_number = 0
+		@comments.each do |c|
+			if c.star.present?
+			sum_of_number += c.star
+			end
+		end
+		@star_average = sum_of_number / @comments.count.to_f
+	end
+
 	def edit
 		@lesson = Lesson.find(params[:lesson_id])
 		@comment = Comment.find_by(lesson_id: params[:lesson_id], id: params[:id])
@@ -7,7 +20,7 @@ class Admin::CommentsController < ApplicationController
 	def update
 		@comment = Comment.find_by(lesson_id: params[:lesson_id], id: params[:id])
 		if @comment.update(comment_params)
-		   redirect_to '/'
+		   redirect_to admin_fuculties_path
 		elsif
 			render :edit
 		end

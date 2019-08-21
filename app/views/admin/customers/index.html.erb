@@ -1,3 +1,24 @@
+<br>
+<br>
+<section class="title">
+	<h3>現役ユーザー一覧</h3>
+</section>
+
+
 <% @customers.each do |c| %>
-	<%=link_to c.customer_name, admin_customer_path(c.id)  %>
+	<%=link_to c.customer_name, admin_customer_path(c.id), class: "customer__index"  %>
+<% end %>
+
+
+
+
+<br>
+<br>
+<section class="title">
+	<h3>退会済みユーザー一覧</h3>
+</section>
+
+
+<% @deleted_customers.each do |c| %>
+	<%=link_to c.customer_name, admin_customer_path(c.id), class: "customer__index"  %>
 <% end %>

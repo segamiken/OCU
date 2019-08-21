@@ -1,15 +1,11 @@
-<ul>
-  <% comment.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
-</ul>
-
 <h3 class="comment-btn2">→コメント一覧に戻る</h3>
 
 <section class="title">
 	<h1><%= lesson.lesson_name %>に対するコメントの新規投稿</h1>
 </section>
 
+<div id="error">
+</div>
 
 <section class="form__all">
 

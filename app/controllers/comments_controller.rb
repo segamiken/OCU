@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
 	def index
 		@comment = Comment.new
 		@lesson = Lesson.find(params[:lesson_id])
@@ -11,11 +12,6 @@ class CommentsController < ApplicationController
 			end
 		end
 		@star_average = sum_of_number / @comments.count.to_f
-	end
-
-	def new
-		@comment = Comment.new
-		@lesson = Lesson.find(params[:lesson_id])
 	end
 
 	def create
@@ -46,7 +42,7 @@ class CommentsController < ApplicationController
 			@star_average = sum_of_number / @comments.count.to_f
 			render 'comment.js.erb'
 		else
-			render :new
+			render 'error.js.erb'
 		end
 	end
 

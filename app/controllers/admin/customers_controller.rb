@@ -1,6 +1,7 @@
 class Admin::CustomersController < ApplicationController
 	def index
-		@customers = Customer.all
+		@customers = Customer.where(deleted: nil)
+    	@deleted_customers = Customer.where(deleted: true)
 	end
 
 	def show
@@ -23,6 +24,12 @@ class Admin::CustomersController < ApplicationController
 	def comments
 		@customer = Customer.find(params[:id])
 		@comments = @customer.comments
+	end
+
+	def delete
+		customer = Customer.find(params[:customer_id])
+		customer.update(deleted: true)
+		redirect_to admin_customers_path
 	end
 
 	private

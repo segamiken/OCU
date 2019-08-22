@@ -2,6 +2,13 @@
 	<h1>授業一覧</h1>
 </section>
 
+<p>教科名で検索</p>
+<%= form_tag(admin_department_lessons_path(@department.id),:method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag '検索', :name => nil %>
+<% end %>
+
+
 
 <%= will_paginate(@lessons,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>
 

@@ -1,5 +1,3 @@
-<br>
-<br>
 <section class="title">
 	<h1><%= @customer.customer_name %>さんの投稿一覧</h1>
 </section>
@@ -31,11 +29,15 @@
 		</p>
 
 		<p class="comment__text">
-		<%= f.attendance %>
+		<textarea readonly>
+			<%= f.attendance %>
+		</textarea>
 		</p>
 
 		<p class="comment__text">
-		<%= f.textbook %>
+		<textarea readonly>
+			<%= f.textbook %>
+		</textarea>
 		</p>
 
 		<p class="comment__text">
@@ -43,7 +45,7 @@
 		</p>
 
 		<p>
-		<textarea readonly>
+		<textarea readonly class="textarea-comment">
 		<%= f.comment %>
 		</textarea>
 		</p>

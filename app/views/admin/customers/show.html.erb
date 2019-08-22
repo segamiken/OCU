@@ -1,5 +1,4 @@
-<br>
-<br>
+
 <section class="title">
 	<h1><%= @customer.customer_name %>さんのユーザーマイページ</h1>
 </section>
@@ -23,7 +22,7 @@
 		</p>
 
 		<p id="comment__text__special">
-		<textarea readonly>
+		<textarea readonly class="textarea-comment">
 		<%= @customer.customer_introduction %>
 		</textarea>
 		</p>
@@ -43,7 +42,6 @@
 		<%= link_to "このユーザーの編集", edit_admin_customer_path(@customer.id) %>
 		</div>
 
-		<br>
 		<div>
 		<% if @customer.deleted == nil %>
 		<%= link_to '退会させる', admin_customer_delete_path(@customer.id), method: :post , 'data-confirm' => "ほんまに退会させますか？", class:"btn__delete" %>

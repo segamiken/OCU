@@ -27,4 +27,12 @@ $(document).ready(function () {
 		$('.comment-index').show();
 		$('.comment-link').hide();
 	});
+
+
+	$('.lesson-images').hover(function(){
+		$(this).css('width', '50%')}
+	);
+
+
+
 });

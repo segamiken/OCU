@@ -77,3 +77,7 @@ gem "refile-mini_magick"
 gem 'jquery-rails'
 
 gem 'rails-i18n'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'will_paginate',           '3.1.7'
+gem 'bootstrap-will_paginate'

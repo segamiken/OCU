@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
 	def index
-		@lessons = Lesson.where(department_id: params[:department_id])
+		@lessons = Lesson.where(department_id: params[:department_id]).paginate(page: params[:page], per_page: 10)
 		@department = Department.find(params[:department_id])
 	end
 
@@ -11,7 +11,7 @@ class LessonsController < ApplicationController
 
 
 	def select
-		@lessons = Lesson.where(department_id: params[:department_id])
+		@lessons = Lesson.where(department_id: params[:department_id]).paginate(page: params[:page], per_page: 10)
 		@department = Department.find(params[:department_id])
 	end
 
@@ -23,12 +23,13 @@ class LessonsController < ApplicationController
 	def create
 		@lesson = Lesson.new(lesson_params)
 		@lesson.department_id = Department.find(params[:department_id]).id
+		@department = Department.find(params[:department_id])
 		@comment = @lesson.comments
 		@comment.each do |c|
 			c.customer_id = current_customer.id
 		end
 		if @lesson.save
-			redirect_to complete_lesson_comments_path(@lesson.id)
+			redirect_to department_lessons_path(@department.id)
 		else
 			render :new
 		end

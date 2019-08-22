@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
 * {
 	margin: 0;
 	padding: 0;
@@ -148,13 +149,20 @@ footer {
 /*リスポンシブ対応！！！！*/
 @media screen and (max-width:768px) {
 	.fuculty__top {
-	width: 50%;
-	height: 100px;
-	float: left;
-	margin-top: 20px;
-	box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem #f1f1f1;
-	text-align: center;
-	line-height: 100px;
-}
+		width: 50%;
+		height: 100px;
+		float: left;
+		margin-top: 20px;
+		box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem #f1f1f1;
+		text-align: center;
+		line-height: 100px;
+	}
+
+	.lesson-images {
+		width: 50%;
+		padding: 30px 10px;
+		float: left;
+		text-align :center;
+	}
 
 }

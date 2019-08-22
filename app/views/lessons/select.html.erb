@@ -9,6 +9,8 @@
 </div>
 
 
+<%= will_paginate(@lessons,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>
+
 <% @lessons.each do |f| %>
 
 <%= link_to lesson_comments_path(f.id) do %>
@@ -18,3 +20,6 @@
 <% end %>
 
 <% end %>
+
+<%= will_paginate(@lessons,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>
+

@@ -4,6 +4,10 @@
 	<h1><%= @customer.customer_name %>さんの投稿一覧</h1>
 </section>
 
+
+<%= will_paginate(@comments,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>
+
+
 <% @comments.each do |f| %>
 <div class="clearfix">
 	<h3 class="mypage__lesson"><%= f.lesson.lesson_name %></h3>
@@ -59,3 +63,5 @@
 <br>
 <br>
 <% end %>
+
+<%= will_paginate(@comments,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>

@@ -1,15 +1,16 @@
 class Admin::CommentsController < ApplicationController
 	def index
 		@lesson = Lesson.find(params[:lesson_id])
-		@comments = Comment.where(lesson_id: params[:lesson_id])
+		@comments = Comment.where(lesson_id: params[:lesson_id]).paginate(page: params[:page], per_page: 3)
 
+		@comments_all = @lesson.comments.all
 		sum_of_number = 0
-		@comments.each do |c|
+		@comments_all.each do |c|
 			if c.star.present?
 			sum_of_number += c.star
 			end
 		end
-		@star_average = sum_of_number / @comments.count.to_f
+		@star_average = sum_of_number / @comments_all.count.to_f
 	end
 
 	def edit

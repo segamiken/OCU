@@ -10,9 +10,12 @@
 
 <div id="favorite-link">
 	<h2>この科目の平均評価点は
-	<%= @star_average %>/10点です。</h2>
+	<%= @star_average.round(2) %>/10点です。</h2>
 
 <br>
+
+<%= will_paginate(@comments,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>
+
 <% @comments.each do |f| %>
 <div class="clearfix">
 	<div class="comment__title">
@@ -87,6 +90,8 @@
 </div>
 <br>
 <% end %>
-</div>
 
+<%= will_paginate(@comments,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>
+
+</div>
 </div>

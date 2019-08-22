@@ -1,7 +1,12 @@
 <h2>この科目の平均評価点は
-	<%= star_average %>/10点です。</h2>
+	<%= star_average.round(2) %>/10点です。</h2>
 
 <br>
+
+
+<%= will_paginate(comments,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>
+
+
 <% comments.each do |f| %>
 <div class="clearfix">
 	<div class="comment__title">
@@ -42,18 +47,18 @@
 		</p>
 
 		<p class="comment__text">
-		<%= f.customer.customer_name %>
+		<%= link_to f.customer.customer_name, customer_path(f.customer.id) %>
 		</p>
 
 
 		<% if customer_signed_in? %>
 		<% if f.favorited_by?(current_customer) %>
-			<%= link_to lesson_comment_favorites_path(f.lesson.id, f.id), method: :delete, remote: true do %>
+			<%= link_to lesson_comment_favorites_path(f.lesson.id, f.id), method: :delete do %>
       		<i class="fa fa-thumbs-up fa-2x" style="color: blue;"></i>
       		<%= f.favorites.count %> いいね
       		<% end %>
       	<% else %>
-		      <%= link_to lesson_comment_favorites_path(f.lesson.id, f.id), method: :post, remote: :true do %>
+		      <%= link_to lesson_comment_favorites_path(f.lesson.id, f.id), method: :post do %>
 	          <i class="fa fa-thumbs-up fa-2x" style="color: #C0C0C0 ;"></i>
     		    <%= f.favorites.count %>いいね
    		 	  <% end %>
@@ -79,3 +84,5 @@
 </div>
 <br>
 <% end %>
+
+<%= will_paginate(comments,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>

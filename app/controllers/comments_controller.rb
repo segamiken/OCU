@@ -3,43 +3,47 @@ class CommentsController < ApplicationController
 	def index
 		@comment = Comment.new
 		@lesson = Lesson.find(params[:lesson_id])
-		@comments = @lesson.comments.all
+		@comments = @lesson.comments.paginate(page: params[:page], per_page: 3)
 
+		@comments_all = @lesson.comments.all
 		sum_of_number = 0
-		@comments.each do |c|
+		@comments_all.each do |c|
 			if c.star.present?
 			sum_of_number += c.star
 			end
 		end
-		@star_average = sum_of_number / @comments.count.to_f
+		@star_average = sum_of_number / @comments_all.count.to_f
 	end
 
 	def create
-		@comments = Comment.where(lesson_id: params[:lesson_id])
+		@comments = Comment.where(lesson_id: params[:lesson_id]).paginate(page: params[:page], per_page: 3)
+
 		@comment = Comment.new(comment_params)
 		@lesson = Lesson.find(params[:lesson_id])
 		@comment.lesson_id = @lesson.id
 		@comment.customer_id = current_customer.id
 
+		@comments_all = Comment.where(lesson_id: params[:lesson_id])
 		sum_of_number = 0
-		@comments.each do |c|
+		@comments_all.each do |c|
 			if c.star.present?
 			sum_of_number += c.star
 			end
 		end
-		@star_average = sum_of_number / @comments.count.to_f
+		@star_average = sum_of_number / @comments_all.count.to_f
 		@comment.average_star = @star_average.to_f
 
 
 		if @comment.save
-			@comments = Comment.where(lesson_id: params[:lesson_id])
+			@comments = Comment.where(lesson_id: params[:lesson_id]).paginate(page: params[:page], per_page: 3)
+			@comments_all = Comment.where(lesson_id: params[:lesson_id])
 			sum_of_number = 0
-			@comments.each do |c|
+			@comments_all.each do |c|
 				if c.star.present?
 					sum_of_number += c.star
 				end
 			end
-			@star_average = sum_of_number / @comments.count.to_f
+			@star_average = sum_of_number / @comments_all.count.to_f
 			render 'comment.js.erb'
 		else
 			render 'error.js.erb'
@@ -56,8 +60,9 @@ class CommentsController < ApplicationController
 
 	def update
 		@comment = Comment.find_by(lesson_id: params[:lesson_id], id: params[:id])
+		@lesson = @comment.lesson
 		if @comment.update(comment_params)
-		   redirect_to complete_lesson_comments_path(@comment.lesson.id)
+		   redirect_to lesson_comments_path(@lesson.id)
 		elsif
 			render :edit
 		end

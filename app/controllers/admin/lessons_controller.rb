@@ -1,6 +1,7 @@
 class Admin::LessonsController < ApplicationController
 	def index
-		@lessons = Lesson.where(department_id: params[:department_id])
+		@lessons = Lesson.where(department_id: params[:department_id]).paginate(page: params[:page], per_page: 10)
+		@department = Department.find(params[:department_id])
 	end
 
 	def destroy

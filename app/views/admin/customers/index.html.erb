@@ -4,6 +4,7 @@
 	<h3>現役ユーザー一覧</h3>
 </section>
 
+<%= will_paginate(@customers,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>
 
 <% @customers.each do |c| %>
 	<%=link_to c.customer_name, admin_customer_path(c.id), class: "customer__index"  %>
@@ -17,6 +18,8 @@
 <section class="title">
 	<h3>退会済みユーザー一覧</h3>
 </section>
+
+<%= will_paginate(@deleted_customers,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>
 
 
 <% @deleted_customers.each do |c| %>

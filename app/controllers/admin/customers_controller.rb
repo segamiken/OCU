@@ -1,7 +1,7 @@
 class Admin::CustomersController < ApplicationController
 	def index
-		@customers = Customer.where(deleted: nil)
-    	@deleted_customers = Customer.where(deleted: true)
+		@customers = Customer.where(deleted: nil).paginate(page: params[:page], per_page: 20)
+    	@deleted_customers = Customer.where(deleted: true).paginate(page: params[:page], per_page: 20)
 	end
 
 	def show
@@ -23,7 +23,7 @@ class Admin::CustomersController < ApplicationController
 
 	def comments
 		@customer = Customer.find(params[:id])
-		@comments = @customer.comments
+		@comments = @customer.comments.paginate(page: params[:page], per_page: 5)
 	end
 
 	def delete

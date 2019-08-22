@@ -47,6 +47,13 @@
 </div>
 
 <div class="field">
+    <%= f.label :exam_image, "過去問画像", class: "form__label" %>
+    <br>
+    <%= f.attachment_field :exam_image %>
+</div>
+
+
+<div class="field">
     <%= f.label :comment, "自由記述欄", class: "form__label" %>
     <%= f.text_area :comment, class: "form__field" %>
 </div>

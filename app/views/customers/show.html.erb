@@ -8,7 +8,7 @@
 	<div class="comment__title">
 		<p>ユーザー名</p>
 		<p>Twitterアカウント</p>
-		<p>自己紹介</p>
+		<p id="comment__title__special">自己紹介</p>
 		<p>投稿数</p>
 	</div>
 
@@ -39,7 +39,7 @@
 		</div>
 
 
-		<% if @customer.id = current_customer.id %>
+		<% if @customer.id == current_customer.id %>
 		<div>
 			<%= link_to "マイページの編集", edit_customer_path(@customer.id) %>
 		</div>

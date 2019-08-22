@@ -28,16 +28,14 @@
         <ul class="header__ul">
         <!--ユーザーログイン時-->
         <% if customer_signed_in? %>
+
+
           <li class="header__li">
-            <%= link_to "ホーム", root_path %>
+            <%= link_to "新規投稿", new_fuculty_path %>
           </li>
 
           <li class="header__li">
             <%= link_to "マイページ", customer_path(current_customer.id) %>
-          </li>
-
-          <li class="header__li">
-            <%= link_to "新規投稿", new_fuculty_path %>
           </li>
 
           <li class="header__li">

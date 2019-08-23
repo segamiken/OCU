@@ -60,6 +60,7 @@
       		<%= f.favorites.count %> いいね
 		</p>
 
+		<% if customer_signed_in? %>
 		<% if f.customer.id == current_customer.id %>
 		<p>
 		<%= link_to "編集する", edit_lesson_comment_path(f.lesson.id, f.id), class: "btn" %>
@@ -68,8 +69,11 @@
 		<%= link_to "コメント削除", lesson_comment_path(f.lesson.id, f.id), method: :delete, 'data-confirm' => "本当に削除しますか？", class: "btn__delete" %>
 		</p>
 		<% end %>
+		<% end %>
 	</div>
 </div>
 <br>
-<%= will_paginate(@comments,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>
+
 <% end %>
+
+<%= will_paginate(@comments,  :previous_label => ' &lt 前へ', :next_label => '次へ &gt', :renderer => WillPaginate::ActionView::LinkRenderer) %>

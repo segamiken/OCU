@@ -36,10 +36,12 @@
 		<%= link_to "このユーザーの投稿一覧を見る", comments_customer_path(@customer.id) %>
 		</div>
 
+		<% if customer_signed_in? %>
 		<div>
 		<% if @customer.id == current_customer.id %>
 			<%= link_to "マイページの編集", edit_customer_path(@customer.id) %>
 		<% end %>
 		</div>
+		<% end %>
 	</div>
 </div>

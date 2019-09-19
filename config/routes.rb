@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   #ユーザーログイン
   devise_for :customers, :controllers => {
   	:registrations => 'customers/registrations',
-  	:sessions => 'customers/sessions'
+  	:sessions => 'customers/sessions',
+    :omniauth_callbacks => 'customers/omniauth_callbacks'
   }
 
   #トップページ

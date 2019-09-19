@@ -82,6 +82,10 @@ gem 'rails-i18n'
 gem 'will_paginate',           '3.1.7'
 gem 'bootstrap-will_paginate'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+gem 'dotenv-rails'
 
 group :production do
   gem 'pg'
